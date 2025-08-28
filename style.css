@@ -562,7 +562,6 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding-top: 120px;
     /* Przestrzeń na górną sekcję wyszukiwania */
     transition: background 1.5s ease-in-out;
     overflow-x: hidden;
@@ -571,7 +570,7 @@ body {
 /* Główny kontener widgetu */
 .weather-widget {
     width: 90%;
-    max-width: 800px;
+    max-width: 900px;
     background: var(--widget-bg);
     border: 1px solid var(--border-color);
     border-radius: 0;
@@ -580,7 +579,9 @@ body {
     padding: 2rem;
     box-shadow: 0 5px 20px var(--shadow-medium);
     color: var(--text-secondary);
+    position: relative;
     z-index: 10;
+    margin: 0 auto;
 }
 
 /* Efekt świecenia tekstu */
