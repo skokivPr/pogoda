@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget pogodowy</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/s-pro-v/fonticons@refs/heads/main/aves.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/s-pro-v/fonticons@refs/heads/main/ui.css">
+    <link rel="stylesheet" href="fonticons-fonts-patch.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-900">
+    <div id="background-effects"></div>
+    <div class="search-section">
+        <div class="search-wrapper">
+            <h2 class="search-title">Sprawdź pogodę</h2>
+            <div class="search-container">
+                <input type="text" id="location-input" placeholder="Wpisz nazwę miasta..." class="search-input"
+                    autocomplete="address-level2">
+                <button type="button" id="search-button" class="search-button" aria-label="Szukaj">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+            <button type="button" id="theme-toggle" class="theme-toggle" title="Przełącz motyw"
+                aria-label="Przełącz motyw jasny i ciemny">
+                <i id="theme-icon" class="fas fa-moon" aria-hidden="true"></i>
+            </button>
+            <p id="error-message" class="error-message hidden" role="alert">Nie znaleziono miasta. Spróbuj innego miasta
+                lub sprawdź pisownię.</p>
+        </div>
+    </div>
+    <div class="weather-widget">
+        <div class="main-grid">
+            <div class="weather-info">
+                <h1 id="location-name" class="location-title text-glow">Ładowanie...</h1>
+                <p id="country-name" class="country-name">—</p>
+                <div id="current-temp" class="current-temperature text-glow">
+                    —<span class="temp-unit">&deg;C</span>
+                </div>
+                <div class="temp-range">
+                    <p>
+                        Maks: <span id="current-max-temp" class="font-medium text-white">—&deg;</span>
+                    </p>
+                    <p>
+                        Min: <span id="current-min-temp" class="font-medium text-white">—&deg;</span>
+                    </p>
+                </div>
+                <div class="sun-times">
+                    <div class="sun-time-item">
+                        <div id="sunrise-icon" class="sun-icon"></div>
+                        <div>
+                            <p class="sun-label">Wschód</p>
+                            <p id="sunrise-time" class="sun-value">—</p>
+                        </div>
+                    </div>
+                    <div class="sun-time-item">
+                        <div id="sunset-icon" class="sun-icon"></div>
+                        <div>
+                            <p class="sun-label">Zachód</p>
+                            <p id="sunset-time" class="sun-value">—</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="weather-icon-container">
+                <div id="current-weather-icon"></div>
+                <p id="current-weather-desc" class="weather-description text-glow">—</p>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div id="details-container" class="details-grid">
+            <div class="detail-item">
+                <i class="wi wi-thermometer detail-icon icon-font-glow text-blue-300"></i>
+                <p class="detail-value" id="feels-like">—</p>
+                <p class="detail-label">Odczuwalna</p>
+            </div>
+            <div class="detail-item">
+                <i class="wi wi-humidity detail-icon icon-font-glow text-green-300"></i>
+                <p class="detail-value" id="humidity">—</p>
+                <p class="detail-label">Wilgotność</p>
+            </div>
+            <div class="detail-item">
+                <i class="wi wi-strong-wind detail-icon icon-font-glow text-gray-300"></i>
+                <p class="detail-value" id="wind-speed">—</p>
+                <p class="detail-label">Wiatr</p>
+            </div>
+            <div class="detail-item">
+                <i class="wi wi-barometer detail-icon icon-font-glow text-purple-300"></i>
+                <p class="detail-value" id="pressure">—</p>
+                <p class="detail-label">Ciśnienie</p>
+            </div>
+            <div class="detail-item col-span-2 col-span-1-sm">
+                <i class="wi wi-umbrella detail-icon icon-font-glow text-cyan-300"></i>
+                <p class="detail-value" id="precipitation">—</p>
+                <p class="detail-label">Opady</p>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div id="forecast-container" class="forecast-grid"></div>
+        <p id="last-update" class="last-update"></p>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
